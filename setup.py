@@ -5,9 +5,9 @@ from typing import List
 def get_requirements(packages_file_path) -> List[str]:
     requirements = []
     with open (packages_file_path) as file:
-        requirements = file.readlines
+        requirements = file.readlines()
         # Replace the new line escape sequence empth space. Use LIST COMPREHENSION
-        requirements = [req.replace('/n', '') for req in requirements]
+        requirements = [req.replace('/n', "") for req in requirements]
         
         if '-e .' in requirements:
             requirements.remove('-e .')
@@ -20,5 +20,5 @@ setup(
     description='Pipeline for credit card fraud detection data.',
     author='Muhammad Usman',
     packages=find_packages(),
-    install_packages= get_requirements('requirements.txt')
+    install_requires= get_requirements('requirements.txt')
 )
